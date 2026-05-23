@@ -342,9 +342,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 0.6rem 1rem;
-    letter-spacing: 2px;
-    font-size: 0.75rem;
+    padding: 0.5rem 0.6rem;
+    letter-spacing: 0;
+    font-size: 0.6rem;
   }
 
   .btn-small {
@@ -935,7 +935,7 @@ function submitAnswer(surname) {
         surname, correct: false, expected: result.closest
       });
       retryAttempt = false;
-      showPraise('✖ НЕВЕРНО', surname + ' · ' + fullCaption, 'wrong');
+      showPraise('ТАКИХ ТАМ НЕ БЫЛО!', surname + ' · ' + fullCaption, 'wrong');
       lockAndAdvance();
     } else {
       retryAttempt = true;
