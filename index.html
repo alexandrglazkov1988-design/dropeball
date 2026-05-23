@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>УГАДАЙ ЛЕГЕНДУ</title>
+<title>ВСПОМНИ ЛЕГЕНДУ</title>
 <script src="images.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap');
@@ -45,9 +45,7 @@
     content: '';
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 62px),
-      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 62px);
+    background: url('bg.png') center/cover no-repeat;
     pointer-events: none;
     z-index: 0;
   }
@@ -59,7 +57,7 @@
     font-weight: 300;
     letter-spacing: 10px;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--white);
     margin-bottom: 0.3rem;
     opacity: 0.8;
   }
@@ -142,27 +140,20 @@
     z-index: 10;
     width: 180px;
     height: 180px;
-    border-radius: 28px;
     opacity: 0.96;
     transition: opacity 0.3s ease;
-    background: rgba(255,255,255,0.07);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px;
-    box-shadow: 0 6px 32px rgba(0,0,0,0.45);
   }
-  .site-logo:hover { opacity: 1; background: rgba(255,255,255,0.12); }
+  .site-logo:hover { opacity: 1; }
   .site-logo img { width: 100%; height: 100%; object-fit: contain; }
+  #landingPage.active ~ .site-logo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   .thankyou-logo {
     width: 160px;
     height: 160px;
     margin: 0 auto 1rem;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px;
-    box-shadow: 0 6px 32px rgba(0,0,0,0.4);
   }
   .thankyou-logo img { width: 100%; height: 100%; object-fit: contain; }
 
@@ -186,7 +177,7 @@
     font-size: 0.75rem;
     font-weight: 300;
     letter-spacing: 6px;
-    color: var(--gold);
+    color: var(--white);
     text-transform: uppercase;
   }
 
@@ -203,11 +194,11 @@
   .counter-display {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--gold);
-    background: rgba(240, 192, 64, 0.1);
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
-    border: 1px solid rgba(240, 192, 64, 0.2);
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .game-card {
@@ -266,7 +257,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: var(--white);
     margin-bottom: 0.3rem;
   }
 
@@ -380,7 +371,7 @@
   .result-message.done {
     display: block;
     background: rgba(240, 192, 64, 0.12);
-    color: var(--gold);
+    color: var(--white);
     border: 1px solid rgba(240, 192, 64, 0.2);
   }
 
@@ -438,11 +429,6 @@
     width: 160px;
     height: 160px;
     margin: 0 auto 0.5rem;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 14px;
-    box-shadow: 0 6px 32px rgba(0,0,0,0.4);
   }
   .name-logo img { width: 100%; height: 100%; object-fit: contain; }
 
@@ -483,7 +469,7 @@
     .input-field { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
     .game-actions { margin-top: 0.4rem; }
     .btn { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
-    .site-logo { width: 100px; height: 100px; top: 0.6rem; left: 0.6rem; padding: 8px; }
+    .site-logo { width: 100px; height: 100px; top: 0.6rem; left: 0.6rem; }
     .result-message .praise { font-size: 1rem; }
     .main-title { font-size: clamp(1.6rem, 6vw, 4rem); margin-bottom: 1rem; }
     .shirt-caption { font-size: 0.6rem; margin-bottom: 0.4rem; padding-bottom: 0.3rem; }
@@ -498,7 +484,7 @@
     .game-card { padding: 0.8rem; max-width: 300px; }
     .game-header { padding: 0.2rem 0; }
     .game-header .game-logo { display: none; }
-    .site-logo { width: 80px; height: 80px; top: 0.5rem; left: 0.5rem; padding: 6px; }
+    .site-logo { width: 80px; height: 80px; top: 0.5rem; left: 0.5rem; }
     .result-message .praise { font-size: 1rem; }
     .main-title { font-size: clamp(1.4rem, 7vw, 2.5rem); margin-bottom: 0.8rem; }
     .main-title::after { width: 40px; height: 2px; margin-top: 0.6rem; }
@@ -519,7 +505,7 @@
 <div id="landingPage" class="page active">
   <div class="landing-content">
     <p class="subtitle">игра</p>
-    <h1 class="main-title">УГАДАЙ<br>ЛЕГЕНДУ</h1>
+    <h1 class="main-title">ВСПОМНИ<br>ЛЕГЕНДУ</h1>
     <button class="btn btn-gold" onclick="showNameScreen()">ИГРАЕМ</button>
   </div>
 </div>
@@ -531,11 +517,11 @@
       <img id="nameLogoImg" src="" alt="Логотип">
     </div>
     <p class="subtitle" style="margin-bottom:0.3rem;">игра</p>
-    <h1 class="main-title">УГАДАЙ ЛЕГЕНДУ</h1>
+    <h1 class="main-title">ВСПОМНИ ЛЕГЕНДУ</h1>
     <div class="game-card">
       <div class="input-group">
         <label>Введи свое имя</label>
-        <input type="text" id="playerNameInput" class="input-field" placeholder="Твое имя..." maxlength="20" onkeydown="if(event.key==='Enter') startGame()">
+        <input type="text" id="playerNameInput" class="input-field" placeholder="Твое имя..." maxlength="20" onkeydown="if(event.key==='Enter') startGame()" style="color:#f5f5f5;">
       </div>
       <button class="btn btn-gold" style="width:100%;" onclick="startGame()">ГАЗУЙ!</button>
     </div>
@@ -976,9 +962,9 @@ function showThankYou() {
 
 function saveToLocalStorage() {
   try {
-    const existing = JSON.parse(localStorage.getItem('ugadayLegendData') || '[]');
+    const existing = JSON.parse(localStorage.getItem('vspomniLegendData') || '[]');
     existing.push(...answers);
-    localStorage.setItem('ugadayLegendData', JSON.stringify(existing));
+    localStorage.setItem('vspomniLegendData', JSON.stringify(existing));
 
     const msg = document.getElementById('saveMessage');
     msg.className = 'result-message saved';
@@ -992,7 +978,7 @@ function downloadExcel() {
   if (typeof XLSX === 'undefined') return;
   let allData;
   try {
-    allData = JSON.parse(localStorage.getItem('ugadayLegendData') || '[]');
+    allData = JSON.parse(localStorage.getItem('vspomniLegendData') || '[]');
   } catch (e) {
     allData = [];
   }
@@ -1014,7 +1000,7 @@ function downloadExcel() {
   const ws = XLSX.utils.json_to_sheet(excelRows);
   ws['!cols'] = [{ wch: 20 }, { wch: 35 }, { wch: 25 }, { wch: 8 }, { wch: 25 }];
   XLSX.utils.book_append_sheet(wb, ws, 'Результаты');
-  XLSX.writeFile(wb, 'Угадай_Легенду_результаты.xlsx');
+  XLSX.writeFile(wb, 'Вспомни_Легенду_результаты.xlsx');
 }
 </script>
 
