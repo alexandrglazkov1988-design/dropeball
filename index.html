@@ -337,6 +337,15 @@
     gap: 0.5rem;
     margin-top: 0.6rem;
   }
+  .game-actions .btn-gold {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.6rem 1rem;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+  }
 
   .btn-small {
     padding: 0.6rem 0.8rem;
@@ -930,7 +939,7 @@ function submitAnswer(surname) {
       lockAndAdvance();
     } else {
       retryAttempt = true;
-      showPraise('⚠ НЕ ПОХОЖЕ', 'Такого игрока нет в составе. Попробуй ещё раз', 'warning');
+      showPraise('⚠ НЕ ПОХОЖЕ', 'Таких там не было!', 'warning');
       document.getElementById('guessInput').disabled = false;
       document.getElementById('guessInput').focus();
       document.getElementById('actionBtnText').textContent = 'ПОВТОРИТЬ';
