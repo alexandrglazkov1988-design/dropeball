@@ -151,6 +151,13 @@
   }
   .site-logo:hover { opacity: 1; }
   .site-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .site-logo--game {
+    width: 180px !important;
+    height: 180px !important;
+    top: 30px !important;
+    left: 60px !important;
+    transform: none !important;
+  }
 
   .thankyou-logo {
     width: 160px;
@@ -505,9 +512,22 @@
     .game-header { padding: 0.2rem 0; }
     .game-header .game-logo { display: none; }
     .site-logo { width: 80px; height: 80px; top: 0.5rem; left: 0.5rem; }
+    .site-logo--game { width: 120px !important; height: 120px !important; top: 10px !important; left: 10px !important; }
+    .landing-logo { width: 200px; height: 200px; }
     .result-message .praise { font-size: 1rem; }
     .main-title { font-size: clamp(1.4rem, 7vw, 2.5rem); margin-bottom: 0.8rem; }
     .main-title::after { width: 40px; height: 2px; margin-top: 0.6rem; }
+    .subtitle { letter-spacing: 6px; font-size: 0.65rem; }
+    .game-actions .btn-gold { font-size: 0.55rem; padding: 0.4rem 0.5rem; }
+  }
+  @media (max-width: 420px) {
+    .page { padding: 0.5rem 0.6rem; }
+    .game-card { padding: 0.6rem; max-width: 280px; }
+    .landing-logo { width: 160px; height: 160px; }
+    .site-logo--game { width: 80px !important; height: 80px !important; top: 5px !important; left: 5px !important; }
+    .btn { padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; }
+    .main-title { font-size: clamp(1.2rem, 6vw, 2rem); }
+    .thankyou-text { font-size: 1.2rem; letter-spacing: 3px; }
   }
 </style>
 </head>
@@ -776,6 +796,7 @@ function showPage(pageId) {
 }
 
 function showNameScreen() {
+  document.querySelector('.site-logo').classList.remove('site-logo--game');
   document.querySelector('.site-logo').style.display = 'none';
   showPage('namePage');
   document.getElementById('playerNameInput').focus();
@@ -796,12 +817,8 @@ function startGame() {
 
   document.getElementById('nameDisplay').textContent = '⚽ ' + playerName;
   const gameLogo = document.querySelector('.site-logo');
+  gameLogo.classList.add('site-logo--game');
   gameLogo.style.display = '';
-  gameLogo.style.width = '180px';
-  gameLogo.style.height = '180px';
-  gameLogo.style.top = '30px';
-  gameLogo.style.left = '60px';
-  gameLogo.style.transform = 'none';
   showPage('gamePage');
   buildProgress();
   showShirt();
@@ -995,6 +1012,7 @@ function lockAndAdvance() {
 }
 
 function showThankYou() {
+  document.querySelector('.site-logo').classList.remove('site-logo--game');
   document.querySelector('.site-logo').style.display = 'none';
   showPage('thankyouPage');
   saveToLocalStorage();
