@@ -277,6 +277,8 @@
     text-transform: uppercase;
     color: var(--white);
     margin-bottom: 0.3rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .input-row {
@@ -518,14 +520,14 @@
   @media (max-width: 600px) {
     .page { padding: 0.8rem 1rem; }
     .game-card { padding: 0.8rem; max-width: 300px; }
-    .game-header { padding: 0.2rem 0; position: relative; }
+    .game-header { padding: 0.2rem 0; }
     .game-header .game-logo { display: none; }
+    .player-name-display { font-size: 0.7rem; padding: 0.25rem 0.8rem; }
+    .counter-display { font-size: 0.7rem; padding: 0.25rem 0.8rem; }
     .site-logo { display: none !important; }
     .game-header-logo {
       display: block;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      flex-shrink: 0;
       width: 30px;
       height: 30px;
       margin: 0;
@@ -535,6 +537,7 @@
     .main-title { font-size: clamp(1.4rem, 7vw, 2.5rem); margin-bottom: 0.8rem; }
     .main-title::after { width: 40px; height: 2px; margin-top: 0.6rem; }
     .subtitle { letter-spacing: 6px; font-size: 0.65rem; }
+    .input-group label { font-size: 0.5rem; letter-spacing: 1px; }
     .game-actions .btn-gold { font-size: 0.55rem; padding: 0.4rem 0.5rem; }
   }
   @media (max-width: 420px) {
@@ -543,6 +546,7 @@
     .landing-logo { width: 160px; height: 160px; }
     .site-logo { display: none !important; }
     .game-header-logo { width: 20px !important; height: 20px !important; margin: 0; }
+    .input-group label { font-size: 0.45rem; letter-spacing: 0; }
     .btn { padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; }
     .main-title { font-size: clamp(1.2rem, 6vw, 2rem); }
     .thankyou-text { font-size: 1.2rem; letter-spacing: 3px; }
